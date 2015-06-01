@@ -1,3 +1,6 @@
+# scala-mini-blog
+Create mini blog by Scala
+
 This is your new Play application
 =================================
 
