@@ -1,0 +1,39 @@
+@(users: List[User])
+
+@main("User database") {
+    <h2>Insert user info here:</h2>
+
+    <form action="/insert" method="POST">
+        <input name="first_name" type="text" placeholder="First name"/>
+        <input name="last_name" type="text" placeholder="Last name"/>
+        <input name="username" type="text" placeholder="Username"/>
+        <input name="password" type="password"/>
+        <input type="submit"/>
+    </form>
+
+    <h2>Previously inserted users:</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>User name</th>
+            <th>Join date</th>
+            <th>Avatar link</th>
+            <th>Password</th>
+        </tr>
+        @for(u <- users) {
+            <tr>
+                <td>@u.id</td>
+                <td>@u.firstName</td>
+                <td>@u.lastName</td>
+                <td>@u.username</td>
+                <td>@u.joinDate</td>
+                <td>@u.avatarLink</td>
+                <td>@u.passHash</td>
+            </tr>
+        }
+    </table>
+
+
+}
