@@ -1,0 +1,32 @@
+@(tokens: List[Token])
+
+@main("User database") {
+    <h2>Insert user info here:</h2>
+
+    <form action="/token/insert" method="POST">
+        <input name="user_id" type="text" placeholder="User Id"/>
+        <input type="submit"/>
+    </form>
+
+    <h2>Previously inserted tokens:</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Value</th>
+            <th>Create time</th>
+            <th>Expired time</th>
+            <th>User Id</th>
+        </tr>
+        @for(t <- tokens) {
+            <tr>
+                <td>@t.id</td>
+                <td>@t.value</td>
+                <td>@t.createTime</td>
+                <td>@t.expiredTime</td>
+                <td>@t.userId</td>
+            </tr>
+        }
+    </table>
+
+
+}

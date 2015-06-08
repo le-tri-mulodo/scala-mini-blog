@@ -1,0 +1,11 @@
+@(form: Form[User])
+
+@if(form.hasErrors) {
+  @if(form.errors.size > 0) {
+    @for(fe <- form.errors) {
+      @for(mes <- fe.messages) {
+        <p>@fe.key -- @mes.toString</p>
+      }
+    }
+  }
+}
